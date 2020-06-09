@@ -1,0 +1,61 @@
+//grid
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>react</title>
+    <meta charset="UTF-8" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      const rootElement = document.getElementById("app");
+
+      const box1 = React.createElement("div", {
+        className: "rootone",
+        style: {
+          margin: "1px 1px",
+          border: "1px solid black",
+          height: "80px",
+          width: "100px"
+        }
+      });
+
+      const element = React.createElement(
+        "div",
+        {
+          className: "root",
+          style: {
+            display: "grid",
+            gridTemplateColumns: "auto auto auto auto"
+          }
+        },
+        box1,
+        box1,
+        box1,
+        box1,
+        box1,
+        box1,
+        box1,
+        box1,
+        box1,
+        box1,
+        box1,
+        box1
+      );
+
+      ReactDOM.render(element, rootElement);
+
+      console.log(React);
+      console.log(ReactDOM);
+    </script>
+  </body>
+</html>
