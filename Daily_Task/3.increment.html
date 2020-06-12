@@ -18,27 +18,29 @@
       return <p>{value}</p>;
     };
     const CounterApp=()=>{
-    const [number,setNumber]=React.useState(0);
+    const [numbers,setNumbers]=React.useState([2,3,4,5,7]);
 
-    const increment=()=>{
-    setNumber(number+1);
+    const increment=(index)=>{
+    setNumbers(numbers.map((element,i)=>(i=== index ? element + 1 :element))
+    );
   };
-   const decrement=()=>{
-    setNumber(number-1);
+   const decrement=(index)=>{
+    setNumbers(numbers.map((element,i)=>(i===index ? element - 1 :element)));
   };
+   
   return(
   <div>
-    <div>
-    <Count value={number}/>
-    <button onClick={increment}>Increment</button>
-    <button onClick={decrement}>Decrement</button>
+    {numbers.map(function (element,index){
+      return(
+    <div key={index}>
+    <Count value={element}/>
+    <button onClick={()=>increment(index)}>Increment</button>
+    <button onClick={()=>decrement(index)}>Decrement</button>
   </div>
-  <div>
-    <Count value={number}/>
-    <button onClick={increment}>Increment</button>
-    <button onClick={decrement}>Decrement</button>
-  </div>
-  <button >Add counter</button>
+  );
+})}
+  
+  <button onClick={()=>setNumbers(numbers.concat([0]))} >Add counter</button>
 </div>
 
   );
